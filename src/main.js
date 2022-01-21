@@ -2,8 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 // import database from '../dataBase/dataBase.js'
-import { initializeApp } from "firebase/app"
-import { getAnalytics } from "firebase/analytics"
+// import { getAnalytics } from "firebase/analytics"
+// import { firestorePlugin } from 'vuefire'
+import { initializeApp } from "firebase/compat/app"
+import firebase from 'firebase/compat/app'
+import { firestorePlugin } from 'vuefire'
+import 'firebase/firestore'
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCbxrS5B9t6It56ChO1M1u1HQPjcvyZXKc",
@@ -15,5 +21,9 @@ const firebaseConfig = {
   measurementId: "G-G65VVZPPYF"
 };
 
+firebase.initializeApp(firebaseConfig)
 
-createApp(App).use(router).mount('#app').initializeApp(firebaseConfig)
+createApp(App).use(router, firestorePlugin).mount('#app')
+export const db = firebase.firestore()
+
+// Vue.use(firestorePlugin)
