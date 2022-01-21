@@ -1,7 +1,3 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-// import database from '../dataBase/dataBase.js'
 import { initializeApp } from "firebase/app"
 import { getAnalytics } from "firebase/analytics"
 
@@ -15,5 +11,4 @@ const firebaseConfig = {
   measurementId: "G-G65VVZPPYF"
 };
 
-
-createApp(App).use(router).mount('#app').initializeApp(firebaseConfig)
+export default firebaseConfig
